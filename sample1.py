@@ -20,12 +20,11 @@ o.start()
 latest_update = datetime.datetime.now()
 while True:
     data = o.getLatestData(uId)
-    print(vars(data))
     if data is not None:
 
         if data.tick_last_update > latest_update:
             print('Illumination: {} lx'.format(data.val_light))
-
+			print(vars(data))
         latest_update = data.tick_last_update
 
     time.sleep(CHECK_SPAN)
